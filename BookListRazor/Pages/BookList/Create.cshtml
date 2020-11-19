@@ -1,0 +1,80 @@
+﻿@page
+@model BookListRazor.CreateModel
+
+<br />
+<h2 class="text-info">Create New Book</h2>
+<br />
+
+<div class="border container" style="padding:30px">
+    <form method="post">
+        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="Book.Name"></label>
+            </div>
+            <div class="col-6">
+                <input asp-for="Book.Name" class="form-control" />
+            </div>
+            <span asp-validation-for="Book.Name" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="Book.Author"></label>
+            </div>
+            <div class="col-6">
+                <input asp-for="Book.Author" class="form-control" />
+            </div>
+            <span asp-validation-for="Book.Author" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="Book.ISBN"></label>
+            </div>
+            <div class="col-6">
+                <input asp-for="Book.ISBN" class="form-control" />
+            </div>
+            <span asp-validation-for="Book.ISBN" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-3 offset-4">
+                <input type="submit" value="Create" class="btn btn-primary form-control" />
+            </div>
+            <div class="col-3">
+                <a asp-page="Index" class="btn btn-success form-control">Bact to List</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Are you sure you want to delete?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Recipient:</label>
+                        <input type="text" class="form-control" id="recipient-name">
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">Message:</label>
+                        <textarea class="form-control" id="message-text"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Send message</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{ 
+    <partial name="_ValidationScriptsPartial" />
+}
